@@ -32,6 +32,7 @@ public class SecutityConfig extends WebSecurityConfigurerAdapter {
 				.loginProcessingUrl("/user/login")
 				.successHandler(successHandler)
 				.failureHandler(authenticationFailureHandler);
+		http.csrf().disable();
 	}
 
 	@Override

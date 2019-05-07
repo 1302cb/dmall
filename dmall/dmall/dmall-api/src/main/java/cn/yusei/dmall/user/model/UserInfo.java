@@ -11,6 +11,10 @@ import java.util.Date;
  */
 public class UserInfo implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//TODO 增加属性和 getter setter
 	private int id;
 	private String nickname;

@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * @author
  * 用户账号信息
- *
+ *用户信息和用户这两个实体类我都加了一个序列化的接口
  */
 public class User implements Serializable{
 
