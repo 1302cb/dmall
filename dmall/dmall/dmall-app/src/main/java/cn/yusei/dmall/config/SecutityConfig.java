@@ -14,6 +14,7 @@ import cn.yusei.dmall.user.service.UserService;
 @Component
 public class SecutityConfig extends WebSecurityConfigurerAdapter {
 
+	
 	@Autowired
 	private UserService service;
 	@Autowired
@@ -22,16 +23,18 @@ public class SecutityConfig extends WebSecurityConfigurerAdapter {
 	private AuthenticationFailureHandler authenticationFailureHandler;
 
 	@Override
+	//加入了"user/register","/login","register"到时记得删除
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-			.antMatchers("/user/login").permitAll()
+			.antMatchers("/user/login","/user/register","/login.html","/register.html").permitAll()
 			.anyRequest().authenticated()
 			.and()
 				.formLogin()
 				.loginProcessingUrl("/user/login")
 				.successHandler(successHandler)
 				.failureHandler(authenticationFailureHandler);
+		
 		http.csrf().disable();
 	}
 

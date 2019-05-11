@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>拒绝访问界面</title>
+</head>
+<body>
+	<h2 style="color: red">权限不够，您的访问被拒绝</h2>
+	
+	<p>
+		Click <a th:href="@{/hello}">点击回到欢迎界面</a> 
+	</p>
+	<p>
+		Click <a th:href="@{/logout}">注销登录</a> 
+	</p>
+</body>
+</html>

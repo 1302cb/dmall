@@ -1,9 +1,7 @@
 package cn.yusei.dmall.user.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
-
 import org.apache.dubbo.config.annotation.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import cn.yusei.dmall.user.dao.UserInfoMapper;
 import cn.yusei.dmall.user.model.UserInfo;
@@ -36,8 +34,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 		return userInfoMapper.findUserInfoByNickname(username);
 	}
 
-	@Transactional(rollbackFor= {Exception.class})
-	void addUserInfo(UserInfo userInfo) {
+	@Override
+	public void addUserInfo(UserInfo userInfo) {
 		try {
 			userInfoMapper.addUserInfo(userInfo);
 		} catch (Exception e) {

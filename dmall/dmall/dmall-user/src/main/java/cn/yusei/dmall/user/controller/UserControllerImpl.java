@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import cn.yusei.dmall.user.dao.UserInfoMapper;
 import cn.yusei.dmall.user.dao.UserMapper;
@@ -18,6 +19,7 @@ public class UserControllerImpl implements UserController {
 	@Autowired
 	private UserInfoMapper userInfoMapper;
 
+	
 	@Override
 	public String register(User user) {
 

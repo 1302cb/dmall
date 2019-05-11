@@ -36,7 +36,7 @@ public class UserAndUserInfoTest {
 	@Test
 	public void testRigister() {
 		User user = new User();
-		user.setPhone("15197582263");
+		user.setPhone("13597585536");
 		user.setPassword("130248cb");
 		controllerImpl.register(user);
 	}

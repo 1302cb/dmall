@@ -15,4 +15,5 @@ public interface UserInfoService {
 	
 	UserInfo getByUsername(String username);
 	
+	void addUserInfo(UserInfo userInfo);
 }
