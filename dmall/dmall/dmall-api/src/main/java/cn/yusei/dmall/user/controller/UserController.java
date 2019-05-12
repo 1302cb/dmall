@@ -15,4 +15,6 @@ public interface UserController {
 	 * @return 注册结果的 JSON 字符串，格式为 {"code":0}
 	 */
 	String register(User user);
+	String updateUserEmail(User user); 
+	String updateUserPassword(User user);
 }

@@ -16,8 +16,6 @@ import org.springframework.stereotype.Controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import cn.yusei.dmall.user.model.User;
-import cn.yusei.dmall.user.utils.BaseResponse;
 
 @Controller
 public class AuthFailureController implements AuthenticationFailureHandler {

@@ -23,11 +23,12 @@ public class SecutityConfig extends WebSecurityConfigurerAdapter {
 	private AuthenticationFailureHandler authenticationFailureHandler;
 
 	@Override
-	//加入了"user/register","/login","register"到时记得删除
+	//为了测试方便我开放了很多接口，到时候记得删除
 	protected void configure(HttpSecurity http) throws Exception {
-		http
+		http.httpBasic()
+			.and()
 			.authorizeRequests()
-			.antMatchers("/user/login","/user/register","/login.html","/register.html").permitAll()
+			.antMatchers("/user/login","/user/register","/user/update/email","/user/update/password","/user/update/nickname").permitAll()
 			.anyRequest().authenticated()
 			.and()
 				.formLogin()

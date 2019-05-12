@@ -35,7 +35,7 @@ public interface UserMapper {
 	
 	
 	//用户更新密码
-	@Update("update user set password=md5(#{passowrd})")
+	@Update("update user set password=md5(#{password})")
 	void updateUserPassword(User user);
 	
 	

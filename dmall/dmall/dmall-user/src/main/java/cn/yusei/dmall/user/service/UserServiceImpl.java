@@ -8,11 +8,10 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.transaction.annotation.Transactional;
 
 import cn.yusei.dmall.user.dao.UserMapper;
 /**
- * 这里因为考虑到客户端说注册只需要电话号码和密码，所以我这里只写了电话号码作为用户名的
+ * 
  * @author 11366
  *
  */
@@ -30,11 +29,18 @@ public class UserServiceImpl implements UserService {
 		
 		*/
 		cn.yusei.dmall.user.model.User phoneMan = userMapper.findUserByPhone(username);
-		if(phoneMan == null) {
+		cn.yusei.dmall.user.model.User emailMan = userMapper.findUserByEmail(username);
+		if(phoneMan == null&&emailMan==null) {
 			throw new UsernameNotFoundException(username+"不存在");
+		}else if(phoneMan!=null) {
+			System.out.println("用户信息"+phoneMan);
+			User user = new User(username, "{MD5}"+phoneMan.getPassword(), Arrays.asList(new SimpleGrantedAuthority("role")));
+			return user;
+		}else {
+			System.out.println("用户信息"+emailMan);
+			User user = new User(username, "{MD5}"+emailMan.getPassword(), Arrays.asList(new SimpleGrantedAuthority("role")));
+			return user;
 		}
-		System.out.println("用户信息"+phoneMan);
-		User user = new User(username, "{MD5}"+phoneMan.getPassword(), Arrays.asList(new SimpleGrantedAuthority("role")));
-		return user;
+		
 	}
 }
