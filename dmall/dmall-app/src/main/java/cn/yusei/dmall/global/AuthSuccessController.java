@@ -1,5 +1,7 @@
 package cn.yusei.dmall.global;
-
+/**
+ * @author 11366
+ */
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -21,10 +23,9 @@ import cn.yusei.dmall.user.model.CodeResult;
 public class AuthSuccessController implements AuthenticationSuccessHandler {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
-	//成功的界面
 	@Autowired
 	private ObjectMapper objectMapper;
-	private CodeResult code = new CodeResult("0");
+	private CodeResult code = new CodeResult(CodeResult.SUCCESS);
 	
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
@@ -32,8 +33,6 @@ public class AuthSuccessController implements AuthenticationSuccessHandler {
 		//TODO 返回登录成功码
 		logger.info("登录成功");
 		response.setContentType("application/json;charset=UTF-8");
-//		response.getWriter().write(objectMapper.writeValueAsString(authentication));
-//		code.setCode("1");
 		response.getWriter().write(objectMapper.writeValueAsString(code));
 	}
 

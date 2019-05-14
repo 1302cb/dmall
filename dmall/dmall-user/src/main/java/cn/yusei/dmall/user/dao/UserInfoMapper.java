@@ -1,5 +1,7 @@
 package cn.yusei.dmall.user.dao;
-
+/**
+ * @author 11366
+ */
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -22,7 +24,7 @@ public interface UserInfoMapper {
 	void addUserInfo(UserInfo userInfo);
 	
 	//更改用户信息,只能改昵称，时间不能改
-	@Update("update userInfo set nickname=#{nickname} where id={id}")
+	@Update("update userInfo set nickname=#{nickname} where id=#{id}")
 	void updateUserInfo(UserInfo userInfo);
 	
 	@Select("select * from userInfo where nickname=#{nickname}")

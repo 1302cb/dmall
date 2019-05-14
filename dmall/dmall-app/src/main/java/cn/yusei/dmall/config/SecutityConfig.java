@@ -1,5 +1,7 @@
 package cn.yusei.dmall.config;
-
+/**
+ * @author 11366
+ */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -23,12 +25,11 @@ public class SecutityConfig extends WebSecurityConfigurerAdapter {
 	private AuthenticationFailureHandler authenticationFailureHandler;
 
 	@Override
-	//为了测试方便我开放了很多接口，到时候记得删除
 	protected void configure(HttpSecurity http) throws Exception {
 		http.httpBasic()
 			.and()
 			.authorizeRequests()
-			.antMatchers("/user/login","/user/register","/user/update/email","/user/update/password","/user/update/nickname").permitAll()
+			.antMatchers("/user/login","/user/register").permitAll()
 			.anyRequest().authenticated()
 			.and()
 				.formLogin()

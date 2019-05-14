@@ -25,22 +25,11 @@ public class DubboBeanConfig {
 	public UserService userService() {
 		return service;
 	}
-
-	@Reference
-	private UserController userController;
-	@Bean
-	public UserController userController() {
-		return userController;
-	}
 	
 	@Reference
-	private UserInfoController userInfoController;
-	@Bean
-	public UserInfoController userInfoController() {
-		return userInfoController;
-	}
-	
 	private UserInfoService userInfoService;
+	
+	@Bean
 	public UserInfoService userInfoService() {
 		return userInfoService;
 	}

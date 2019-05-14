@@ -1,5 +1,7 @@
 package cn.yusei.dmall.user.dao;
-
+/**
+ * @author 11366
+ */
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -35,11 +37,15 @@ public interface UserMapper {
 	
 	
 	//用户更新密码
-	@Update("update user set password=md5(#{password})")
+	@Update("update user set password=md5(#{password}) where phone=#{phone}")
 	void updateUserPassword(User user);
 	
 	
 	//删除用户，这个一般是自己注销账号，或者管理员有的权限
 	@Delete("DELETE FROM USER WHERE id=#{id}")
 	void deleteUserById(int id);
+	
+	//通过电话号码删除用户
+	@Delete("DELETE FROM USER WHERE phone=#{phone}")
+	void deleteUserByPhone(String phone);
 }
